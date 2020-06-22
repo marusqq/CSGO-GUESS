@@ -1,11 +1,11 @@
 echo off
 REM navigate
-cd ..
+REM cd ..
 
-REM download from drive
-
-REM add new changes
+REM download from drive and read input through pandas
+python downloading.py
 
 REM return to drive with the same ID
+python quickstart.py
 
 pause

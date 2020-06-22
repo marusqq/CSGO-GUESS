@@ -1,10 +1,10 @@
 {
-  "tournament_name": "WEPLAY! CLUTCH ISLAND",
+  "tournament_name": "cs_summit 6 North America",
   "player_count": 3,
   "player_names": [
     "Marius", "Domantas", "Tomas"
   ],
-  "id": "1KMvNeoOXx_sxNsIxbTkdyk37sjoPcOKDu5PHaMeNXfg",
+  "id": "1UJd0OW_MmClY049MF6Zm3_-QAQ2-oYh0wOw64BsDfN8",
   "status": "ingame",
   "possible_statuses": "pregame, ingame, aftergame"
 }

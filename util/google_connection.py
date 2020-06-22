@@ -38,12 +38,12 @@ def connect_to_gdrive():
 
     return drive
 
-def create_file_drive(drive, filename):
+def create_file_drive(drive, filename, file_id):
     '''creates file on drive using filename
     and returns it on succesful creation'''
 
     try:
-        new_file = drive.CreateFile({'title': filename})
+        new_file = drive.CreateFile({'title': filename, 'id': file_id})
         return new_file
 
     except:

@@ -22,7 +22,11 @@ else:
     quit('No settings.json file found!')
 
 #create a simple file, then copy
-file1 = goog.create_file_drive(drive = drive, filename = data['tournament_name'] + '.xlsx')
+if data['status'] == 'ingame':
+    id = data['id']
+else:
+    id = None
+file1 = goog.create_file_drive(drive = drive, filename = data['tournament_name'] + '.xlsx', file_id = id)
 goog.upload_xlsx_to_drive_file(drive_file = file1, pc_filename = data['tournament_name'] + '.xlsx')
 
 #file upload to drive
@@ -36,8 +40,8 @@ if fo.check_if_file_exists(path = script_path, filename = json_filename):
     fo.delete_file(path = script_path, filename = json_filename)
     
 #save id to json
-fo.add_to_json(json = data, add = file1['id'], name = 'id')
 if data['status'] == 'pregame':
+    fo.add_to_json(json = data, add = file1['id'], name = 'id')
     fo.add_to_json(json = data, add = 'ingame', name = 'status')
 
 #output everything to json

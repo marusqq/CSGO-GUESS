@@ -31,15 +31,15 @@ file1.Upload({'convert': True})
 #i don't quite remember why I did this. Probably move to refresh workflow
 #goog.download_drive_file(drive = drive, file_id = file1['id'], file_title = file1['title'])
 
-#save id to json
-fo.add_to_json(json = data, add = file1['id'], name = 'id')
-
-#if file exists, delete it
+#if old json file exists, delete it
 if fo.check_if_file_exists(path = script_path, filename = json_filename):
     fo.delete_file(path = script_path, filename = json_filename)
+    
+#save id to json
+fo.add_to_json(json = data, add = file1['id'], name = 'id')
+if data['status'] == 'pregame':
+    fo.add_to_json(json = data, add = 'ingame', name = 'status')
 
 #output everything to json
 fo.output_json_to_file(json_data = data, path = script_path, filename = json_filename)
-
-#returned 1ORSG2sQCyemh5RQKEssoiDhINxItRyLmyfEXblXaI4c
 

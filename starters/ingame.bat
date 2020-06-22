@@ -1,7 +1,6 @@
 echo off
 REM navigate
 cd ..
-cd refresh
 
 REM download from drive
 

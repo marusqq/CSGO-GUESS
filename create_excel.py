@@ -12,23 +12,22 @@ import xlsxwriter
 from xlsxwriter.utility import xl_rowcol_to_cell
 
 
-def create_xlsx(tournament):
+def create_xlsx(tournament, status):
     '''creates xlsx file with inputed filename'''
     #create workbook
     workbook = excel.create_workbook(tournament)
 
     #1/2 sheet of the workbook
-    guess = excel.create_worksheet(workbook, 'Games and Guesses')
-    #guess = workbook.add_worksheet('Games and Guesses')
+    guess = excel.create_worksheet(workbook, 'Matches')
     
     #get all the matches that are decided
-    matches = rn.get_tournament_matches(tournament)
+    if status == 'pregame':
+        matches = rn.get_tournament_matches(tournament)
     
     bold_italic = excel.add_format_to_workbook(workbook,
                                                 bold = True, 
                                                 italic = True, 
                                                 underline = False)
-    #bold_italic = workbook.add_format({'bold': True, 'italic': True})
 
     #change some column sizes
     guess = excel.change_column_size(guess, 0, 0, 35)
@@ -56,4 +55,4 @@ def create_xlsx(tournament):
 data = fo.load_json(None, 'settings.json')
 
 #create the file
-create_xlsx(data['tournament_name'])
+create_xlsx(data['tournament_name'], data['status'])
